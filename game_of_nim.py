@@ -1,5 +1,6 @@
 
 from games import *
+from alpha_beta_cutoff import *
 
 class GameOfNim(Game):
     """Play Game of Nim with first player 'MAX'.
@@ -67,19 +68,14 @@ class GameOfNim(Game):
     def to_move(self, state):
         """Return the player whose move it is in this state."""
         return state.to_move
-
-if __name__ == "__main__":
-    nim = GameOfNim(board=[0, 5, 3, 1]) # Creating the game instance
-    #nim = GameOfNim(board=[7, 5, 3, 1]) # a much larger tree to search
     
-    # print(nim.initial.board) # must be [0, 5, 3, 1]
-    # print(nim.initial.moves) # must be [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (2, 1), (2, 2), (2, 3), (3, 1)]
-        
-    # print(nim.result(nim.initial, (1,3)))
+if __name__ == "__main__":
+    nim = GameOfNim(board=[7, 5, 3, 1, 9]) # a much larger tree to search
 
-    utility = nim.play_game(random_player, alpha_beta_player)  # computer moves first
+    utility = nim.play_game(alpha_beta_cutoff_player, random_player)  # computer moves first
 
     if (utility < 0):
         print("MIN won the game")
     else:
         print("MAX won the game")
+    

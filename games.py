@@ -197,6 +197,7 @@ def random_player(game, state):
     """A player that chooses a legal move at random."""
     return random.choice(game.actions(state)) if game.actions(state) else None
 
+
 def alpha_beta_player(game, state):
     return alpha_beta_search(state, game)
 
