@@ -1,6 +1,7 @@
 
 from games import *
 from alpha_beta_cutoff import *
+from evaluation_function import evaluation_function
 
 class GameOfNim(Game):
     """Play Game of Nim with first player 'MAX'.
@@ -70,12 +71,22 @@ class GameOfNim(Game):
         return state.to_move
     
 if __name__ == "__main__":
-    nim = GameOfNim(board=[7, 5, 3, 1, 9]) # a much larger tree to search
+    nim = GameOfNim(board=[7, 5, 3, 1, 8, 4, 2, 5, 3, 9]) # a much larger tree to search
 
     utility = nim.play_game(alpha_beta_cutoff_player, random_player)  # computer moves first
-
+    
     if (utility < 0):
         print("MIN won the game")
     else:
         print("MAX won the game")
     
+    
+    # test = GameOfNim(board=[3,4,1])
+    # alpha_beta_cutoff_search(state=test.initial, game=nim, d=4, eval_fn=evaluation_function)       
+    
+    # # utility = test.play_game(alpha_beta_cutoff_player,random_player)  # computer moves first
+    
+    # # if (utility < 0):
+    # #     print("MIN won the game")
+    # # else:
+    # #     print("MAX won the game")
