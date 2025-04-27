@@ -1,7 +1,8 @@
 
-from games import *
+from game import *
 from alpha_beta_cutoff import *
-from evaluation_function import evaluation_function
+from query_player import *
+from random_player import *
 
 class GameOfNim(Game):
     """Play Game of Nim with first player 'MAX'.
@@ -45,7 +46,7 @@ class GameOfNim(Game):
         
         new_state = GameState(to_move=new_to_move, utility=0, board=new_board, moves=new_moves)
         new_utility = self.utility(new_state, new_state.to_move)
-             
+        
         return GameState(to_move=new_to_move, utility=new_utility, board=new_board, moves=new_moves)
     
     def utility(self, state, player):
@@ -71,22 +72,20 @@ class GameOfNim(Game):
         return state.to_move
     
 if __name__ == "__main__":
-    nim = GameOfNim(board=[7, 5, 3, 1, 8, 4, 2, 5, 3, 9]) # a much larger tree to search
+    # nim = GameOfNim(board=[7, 5, 3, 1, 8, 4, 2, 10]) # a much larger tree to search
 
-    utility = nim.play_game(alpha_beta_cutoff_player, random_player)  # computer moves first
+    # utility = nim.play_game(alpha_beta_cutoff_player, query_player)  # computer moves first
+    
+    # if (utility < 0):
+    #     print("MIN won the game")
+    # else:
+    #     print("MAX won the game")
+    
+    test = GameOfNim(board=[3,4,1,7])
+    
+    utility = test.play_game(alpha_beta_cutoff_player, random_player)  # computer moves first
     
     if (utility < 0):
         print("MIN won the game")
     else:
         print("MAX won the game")
-    
-    
-    # test = GameOfNim(board=[3,4,1])
-    # alpha_beta_cutoff_search(state=test.initial, game=nim, d=4, eval_fn=evaluation_function)       
-    
-    # # utility = test.play_game(alpha_beta_cutoff_player,random_player)  # computer moves first
-    
-    # # if (utility < 0):
-    # #     print("MIN won the game")
-    # # else:
-    # #     print("MAX won the game")
