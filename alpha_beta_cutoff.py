@@ -1,5 +1,3 @@
-"""Games or Adversarial Search (Chapter 5)"""
-
 from evaluation_function import *
 from alpha_beta_cutoff_search import *
 
