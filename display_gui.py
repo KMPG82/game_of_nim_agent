@@ -20,8 +20,8 @@ def display_gui(state, window):
         group_row.pack(pady=5)
 
         for ij in range(group):
-            item = tk.Label(group_row, text="●", font=("Helvetica", 16), fg="black")
-            item.pack(side="left", padx=2)
+            item = tk.Label(group_row, text="●", font=("Helvetica", 30), fg="blue")
+            item.pack(side="left", padx=7)
     
     window.update()
     
