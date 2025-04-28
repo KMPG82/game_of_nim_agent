@@ -1,4 +1,3 @@
-
 def evaluation_function(state):
     groups = [group for group in state.board if group > 0]
     
@@ -11,7 +10,6 @@ def evaluation_function(state):
     nim_sum = 0
     number_of_ones = 0
     number_of_non_ones = 0
-
     for group in groups:
         nim_sum ^= group
         if group == 1:
@@ -20,7 +18,6 @@ def evaluation_function(state):
             number_of_non_ones += 1
 
     total_non_zero = len(groups)
-    
     if total_non_zero == 1 and groups[0] == 1:
         if state.to_move == 'MAX':
             return -1000

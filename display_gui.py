@@ -19,11 +19,8 @@ def display_gui(state, window):
         group_row = tk.Frame(frame)
         group_row.pack(pady=5)
 
-        group_label = tk.Label(group_row, text=f"group {ix+1}: ", font=("Helvetica", 16))
-        group_label.pack(side="left")
-
         for ij in range(group):
-            item = tk.Label(group_row, text="●", font=("Helvetica", 16), fg="blue")
+            item = tk.Label(group_row, text="●", font=("Helvetica", 16), fg="black")
             item.pack(side="left", padx=2)
     
     window.update()
