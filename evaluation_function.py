@@ -1,7 +1,7 @@
 def evaluation_function(state):
-    groups = [group for group in state.board if group > 0]
+    rows = [row for row in state.board if row > 0]
     
-    if len(groups) == 0:
+    if len(rows) == 0:
         if state.to_move == 'MAX':
             return 1000
         else:
@@ -10,15 +10,15 @@ def evaluation_function(state):
     nim_sum = 0
     number_of_ones = 0
     number_of_non_ones = 0
-    for group in groups:
-        nim_sum ^= group
-        if group == 1:
+    for row in rows:
+        nim_sum ^= row
+        if row == 1:
             number_of_ones += 1
         else:
             number_of_non_ones += 1
 
-    total_non_zero = len(groups)
-    if total_non_zero == 1 and groups[0] == 1:
+    total_non_zero = len(rows)
+    if total_non_zero == 1 and rows[0] == 1:
         if state.to_move == 'MAX':
             return -1000
         else:
@@ -33,4 +33,4 @@ def evaluation_function(state):
     if nim_sum == 0:
         return -50
     else:
-        return 50 + sum(groups)
+        return 50 + sum(rows)

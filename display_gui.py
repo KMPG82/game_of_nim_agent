@@ -12,15 +12,15 @@ def display_gui(state, window):
     frame = tk.Frame(window)
     frame.pack(pady=10)
     
-    for ix, group in enumerate(board):
-        if group == 0:
+    for ix, row in enumerate(board):
+        if row == 0:
             continue
         
-        group_row = tk.Frame(frame)
-        group_row.pack(pady=5)
+        row_frame = tk.Frame(frame)
+        row_frame.pack(pady=5)
 
-        for ij in range(group):
-            item = tk.Label(group_row, text="●", font=("Helvetica", 30), fg="blue")
+        for ij in range(row):
+            item = tk.Label(row_frame, text="●", font=("Helvetica", 30), fg="blue")
             item.pack(side="left", padx=7)
     
     window.update()

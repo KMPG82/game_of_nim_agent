@@ -25,18 +25,20 @@ class GameOfNim(Game):
         return state.moves
     
     def result(self, state, move):        
-        row = move[0]
+        row = move[0] - 1
         number_to_remove = move[1]
         
-        new_board = state.board.copy()
-        new_board[row] -= number_to_remove
+        new_board_temp = state.board.copy()
+        new_board_temp[row] -= number_to_remove
+        
+        new_board = [items for items in new_board_temp if items != 0]
         
         new_moves = []
         for ix in range(len(new_board)):
                     count = new_board[ix]
                     if count != 0:
                         for num in range(1, count + 1):
-                            new_moves.append((ix, num))
+                            new_moves.append((ix+1, num))
 
         new_to_move = ""
         if state.to_move == 'MAX':
