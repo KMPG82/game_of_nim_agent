@@ -74,20 +74,11 @@ class GameOfNim(Game):
         return state.to_move
     
 if __name__ == "__main__":
-    nim = GameOfNim(board=[7, 5, 3, 1, 8, 4, 2, 10]) # a much larger tree to search
+    nim = GameOfNim(board=[7, 5, 3, 1, 8, 4, 2, 10])
 
-    utility = nim.play_game(alpha_beta_cutoff_player, query_player)  # computer moves first
+    utility = nim.play_game(alpha_beta_cutoff_player, random_player)
     
     if (utility < 0):
         print("MIN won the game")
     else:
         print("MAX won the game")
-    
-    # test = GameOfNim(board=[3,4,1,7])
-    
-    # utility = test.play_game(alpha_beta_cutoff_player, random_player)  # computer moves first
-    
-    # if (utility < 0):
-    #     print("MIN won the game")
-    # else:
-    #     print("MAX won the game")

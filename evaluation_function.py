@@ -17,8 +17,8 @@ def evaluation_function(state):
         else:
             number_of_non_ones += 1
 
-    total_non_zero = len(rows)
-    if total_non_zero == 1 and rows[0] == 1:
+    number_of_non_zero_rows = len(rows)
+    if number_of_non_zero_rows == 1 and rows[0] == 1:
         if state.to_move == 'MAX':
             return -1000
         else:
