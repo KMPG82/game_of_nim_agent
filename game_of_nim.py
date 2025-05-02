@@ -1,4 +1,3 @@
-
 from game import *
 from alpha_beta_cutoff_player import *
 from query_player import *
