@@ -75,7 +75,7 @@ class GameOfNim(Game):
 if __name__ == "__main__":
     nim = GameOfNim(board=[7, 5, 3, 1, 8, 4, 2, 10])
 
-    utility = nim.play_game(alpha_beta_cutoff_player, random_player)
+    utility = nim.play_game(alpha_beta_cutoff_player, query_player)
     
     if (utility < 0):
         print("MIN won the game")
