@@ -2,6 +2,10 @@ README
 • Layout of the code
 • What does each file/folder do? Make it understandable to another CS student.
 
+LIBRARIES TO INSTALL:
+    numpy: pip install numpy
+
+FILES:
 alpha_beta_cutoff_player.py
     Contains a function that calls the alpha-beta pruning algorithm.
 
